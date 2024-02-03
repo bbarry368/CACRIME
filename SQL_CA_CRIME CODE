@@ -1,0 +1,11 @@
+SELECT Year,
+	Count([DR_NO]) as 'Total Crimes'
+
+      ,Count ([Weapon_Desc]) as 'Crimes with Weapon'
+
+	,(Count([Weapon_Desc])*100.0)/(Count ([DR_NO])) as '% of Crimes with Weapon'
+
+  FROM [ET_Dashboard_Dev].[dbo].[LA Crime]
+  Where Year >= '2020'
+  Group by Year
+  Order by Year
