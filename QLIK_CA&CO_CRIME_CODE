@@ -1,0 +1,74 @@
+[LA Crime]:
+SELECT "DR_NO",
+	"Date_Rptd",
+	"DATE_OCC",
+	"Year",
+	"TIME_OCC",
+	AREA,
+	"AREA_NAME",
+	"Rpt_Dist_No",
+	"Part_1_2",
+	"Crm_Cd",
+	"Crm_Cd_Desc",
+	Mocodes,
+	"Vict_Age",
+	"Vict_Sex",
+	"Vict_Descent",
+	"Premis_Cd",
+	"Premis_Desc",
+	"Weapon_Used_Cd",
+	"Weapon_Desc",
+	Status,
+	"Status_Desc",
+	"Crm_Cd_1",
+	"Crm_Cd_2",
+	"Crm_Cd_3",
+	"Crm_Cd_4",
+	LOCATION,
+	"Cross_Street",
+	LAT,
+	LON
+FROM "ET_Dashboard_Dev".dbo."LA Crime";
+[Denver Crime]:
+SELECT "incident_id",
+	"offense_id",
+	"offense_code",
+	"offense_code_extension",
+	"offense_type_id",
+	"offense_category_id",
+	"first_occurrence_date",
+	"Year",
+	"last_occurrence_date",
+	"reported_date",
+	"incident_address",
+	"geo_x",
+	"geo_y",
+	"geo_lon",
+	"geo_lat",
+	"district_id",
+	"precinct_id",
+	"neighborhood_id",
+	"is_crime",
+	"is_traffic",
+	"victim_count"
+FROM "ET_Dashboard_Dev".dbo."Denver Crime";
+
+[Crime Change]:
+SELECT "Year",
+	"LA_Crime",
+	"LA_Change_YoY",
+	"Denver_Crime",
+	"Denver_Change_YoY"
+FROM "ET_Dashboard_Dev".dbo."Crime Change";
+LA Crimes Formula:
+Dimension = year
+Measure = Count(DR_NO)
+LA Crimes with a weapon formula:
+Dimension = year
+Measure = Count(Weapon_Desc)
+% of crimes with a weapon formula:
+Dimension = year
+Measure = Count(Weapon_Desc)/Count(DR_NO)
+Colorado Crimes formula:
+Dimension = year
+Measure = Count(incident_id)
