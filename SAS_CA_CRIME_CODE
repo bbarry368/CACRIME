@@ -1,0 +1,6 @@
+proc sgplot data=WORK.IMPORT;
+	vbar Year /;
+	yaxis grid;
+run;
+ods graphics / reset;
+
